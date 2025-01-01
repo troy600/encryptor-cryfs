@@ -1,0 +1,21 @@
+#!/usr/bin/expect
+set password [lindex $argv 0]
+set cryptfolder [lindex $argv 0]
+set uncryptfolder [lindex $argv 0]
+
+
+spawn cryfs "$cryptfolder" "$uncryptfolder"
+
+expect "Your choice"
+send "y\r"
+
+
+expect "Password:"
+send "$password\r"
+
+expect "Confirm Password:"
+send "$password\r"
+
+expect "Your choice"
+send "y\r"
+sleep 4
