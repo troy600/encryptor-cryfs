@@ -5,7 +5,9 @@ Foldermake() {
 }
 
 CheckFIle() {
-    echo null
+    if [[ -f "$PATHS" ]]; then
+        echo "1"
+    fi
 }
 
 EncryptFile() {
@@ -18,7 +20,7 @@ DecryptFile() {
 }
 
 SelectFile() {
-    echo null
+    THEFILE=$(zenity --title "select a folder to encrypt your file >:)" --file-selection --multiple) 
 }
 
 # shellcheck disable=SC1073
@@ -27,7 +29,10 @@ if [[ ! -f "$HOME/.config/secrets" ]]; then
 fi
     
 
+SelectFile
+FINALSELECT=$(echo "$THEFILE" | sed 's/|/ /g')
+echo $FINALSELECT
 
-#zenity --title "select a folder to encrypt your file >:)" --file-selection --directory
+
 
 #exec ./ssss.exp bazar124
