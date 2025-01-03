@@ -11,7 +11,7 @@ CheckFIle() {
 }
 
 EncryptFile() {
-    echo
+    exec ./ssss.exp bazar124
 }
 
 DecryptFile() {
